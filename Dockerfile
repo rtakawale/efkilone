@@ -4,8 +4,9 @@ WORKDIR /usr/src/app
 RUN chmod 777 /usr/src/app
 RUN apt-get -qq update
 RUN apt-get -qq install -y git python3 python3-pip \
-    locales python3-lxml aria2 \
+    locales python3-lxml \
     curl pv jq nginx npm
+RUN git clone https://github.com/ujjal40/arere
 COPY requirements.txt .
 RUN pip3 install --no-cache-dir -r requirements.txt && \
     apt-get -qq purge git
